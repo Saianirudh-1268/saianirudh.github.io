@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Sai Anirudh Godavarthi| Portfolio</title>
+  <title>Sai Anirudh Godavarthi | Portfolio</title>
 
   <style>
     body {
@@ -18,7 +18,7 @@
 
     .container {
       width: 90%;
-      max-width: 900px;
+      max-width: 1000px;
       margin-top: 40px;
     }
 
@@ -34,37 +34,107 @@
       text-align: center;
     }
 
-    .header h1 {
-      margin: 0;
-      font-size: 40px;
-      color: #222;
+    .header img {
+      width: 150px;
+      height: 150px;
+      border-radius: 50%;
+      object-fit: cover;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.2);
     }
 
-    .header h2 {
-      margin-top: 10px;
-      font-weight: normal;
-      color: #555;
+    .typing {
+      font-size: 28px;
+      color: #0078ff;
+      font-weight: bold;
+      border-right: 3px solid #0078ff;
+      white-space: nowrap;
+      overflow: hidden;
+      width: 0;
+      animation: typing 4s steps(30, end) forwards, blink 0.75s step-end infinite;
+    }
+
+    @keyframes typing {
+      from { width: 0; }
+      to { width: 100%; }
+    }
+
+    @keyframes blink {
+      50% { border-color: transparent; }
     }
 
     nav {
-      text-align: center;
-      margin: 20px 0;
+      display: flex;
+      justify-content: space-around;
+      background: #fff;
+      padding: 15px;
+      border-radius: 12px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+      margin-bottom: 25px;
     }
 
-    nav a {
-      text-decoration: none;
-      margin: 0 15px;
-      color: #0078ff;
+    nav button {
+      background: none;
+      border: none;
+      font-size: 16px;
       font-weight: bold;
+      color: #0078ff;
+      cursor: pointer;
+      padding: 10px 15px;
+      border-radius: 8px;
+      transition: 0.3s;
     }
 
-    h3 {
-      color: #333;
-      margin-bottom: 10px;
+    nav button:hover,
+    nav button.active {
+      background: #0078ff;
+      color: white;
     }
 
-    ul {
-      padding-left: 20px;
+    .tab-content {
+      display: none;
+    }
+
+    .tab-content.active {
+      display: block;
+    }
+
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 20px;
+    }
+
+    .project-card {
+      background: #f9f9f9;
+      border-radius: 10px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+      padding: 15px;
+      text-align: center;
+    }
+
+    .project-card img {
+      width: 100%;
+      height: 160px;
+      border-radius: 10px;
+      object-fit: cover;
+    }
+
+    .contact-form input, .contact-form textarea {
+      width: 100%;
+      padding: 10px;
+      margin: 8px 0;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+    }
+
+    .contact-form button {
+      background: #0078ff;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 8px;
+      cursor: pointer;
+      font-weight: bold;
     }
 
     footer {
@@ -80,20 +150,20 @@
 <div class="container">
 
   <div class="card header">
-    <h1>Welcome!!</h1>
-    <h2>I’m Sai Anirudh Godavarthi</h2>
+    <img src="profile.jpg" alt="Sai Anirudh Photo">
+    <h1 class="typing">I’m Sai Anirudh Godavarthi</h1>
     <p>Software Developer • Masters in Electrical and Computer Engineering</p>
     <p>Embedded Systems • IoT • Automation Testing • VLSI • ASIC Physical Design • RF & Mixed Signal • THz in 6G</p>
   </div>
 
   <nav>
-    <a href="#about">About</a>
-    <a href="#skills">Skills</a>
-    <a href="#projects">Projects</a>
-    <a href="#contact">Contact</a>
+    <button class="tab-btn active" onclick="openTab('about')">About</button>
+    <button class="tab-btn" onclick="openTab('skills')">Skills</button>
+    <button class="tab-btn" onclick="openTab('projects')">Projects</button>
+    <button class="tab-btn" onclick="openTab('contact')">Contact</button>
   </nav>
 
-  <div class="card" id="about">
+  <div class="card tab-content active" id="about">
     <h3>About Me</h3>
     <p>
       I am an enthusiastic engineer with experience in Embedded C, STM32, IoT firmware,
@@ -102,29 +172,47 @@
     </p>
   </div>
 
-  <div class="card" id="skills">
+  <div class="card tab-content" id="skills">
     <h3>Skills</h3>
     <ul>
       <li>Embedded C, STM32, ARM Cortex‑M</li>
       <li>IoT Firmware Development</li>
       <li>Automation Testing (Selenium, Java, Python)</li>
       <li>Web Development (HTML, CSS, JS)</li>
+      <li>VLSI • ASIC Physical Design • RF & Mixed Signal</li>
+      <li>THz in 6G Research</li>
     </ul>
   </div>
 
-  <div class="card" id="projects">
+  <div class="card tab-content" id="projects">
     <h3>Projects</h3>
-    <ul>
-      <li><strong>IoT Smart Home System</strong> – Built using STM32 + sensors</li>
-      <li><strong>Automation Test Suite</strong> – Selenium-based testing framework</li>
-      <li><strong>Personal Portfolio Website</strong> – Hosted on GitHub Pages</li>
-    </ul>
+    <div class="projects-grid">
+      <div class="project-card">
+        <img src="project1.jpg" alt="IoT Smart Home">
+        <h4>IoT Smart Home System</h4>
+        <p>Built using STM32 + sensors for automation and monitoring.</p>
+      </div>
+      <div class="project-card">
+        <img src="project2.jpg" alt="Automation Test Suite">
+        <h4>Automation Test Suite</h4>
+        <p>Selenium-based testing framework for web applications.</p>
+      </div>
+      <div class="project-card">
+        <img src="project3.jpg" alt="Portfolio Website">
+        <h4>Personal Portfolio Website</h4>
+        <p>Hosted on GitHub Pages with responsive design.</p>
+      </div>
+    </div>
   </div>
 
-  <div class="card" id="contact">
-    <h3>Contact</h3>
-    <p>Email: <strong>sainairudh2000g@gmail.com</strong></p>
-    <p>GitHub: <a href="https://github.com/saianirudh-1268">github.com/saianirudh-1268</a></p>
+  <div class="card tab-content" id="contact">
+    <h3>Contact Me</h3>
+    <form class="contact-form" action="mailto:sainairudh2000g@gmail.com" method="post" enctype="text/plain">
+      <input type="text" name="name" placeholder="Your Name" required>
+      <input type="email" name="email" placeholder="Your Email" required>
+      <textarea name="message" rows="5" placeholder="Your Message" required></textarea>
+      <button type="submit">Send Message</button>
+    </form>
   </div>
 
   <footer>
@@ -132,6 +220,15 @@
   </footer>
 
 </div>
+
+<script>
+  function openTab(tabId) {
+    document.querySelectorAll('.tab-content').forEach(tab => tab.classList.remove('active'));
+    document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
+    document.getElementById(tabId).classList.add('active');
+    event.target.classList.add('active');
+  }
+</script>
 
 </body>
 </html>
