@@ -51,6 +51,7 @@
       white-space: nowrap;
       overflow: hidden;
       width: 0;
+      margin: 10px auto;
       animation: typing 4s steps(30, end) forwards, blink 0.75s step-end infinite;
     }
 
@@ -63,7 +64,18 @@
       50% { border-color: transparent; }
     }
 
-    /* Dashboard Tabs */
+    .links a {
+      color: #0078ff;
+      text-decoration: none;
+      font-weight: bold;
+      margin: 0 10px;
+    }
+
+    .links a:hover {
+      text-decoration: underline;
+    }
+
+    /* 3-column dashboard */
     .dashboard {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
@@ -78,13 +90,14 @@
     .dashboard button {
       background: none;
       border: none;
-      font-size: 16px;
+      font-size: 15px;
       font-weight: bold;
       color: #0078ff;
       cursor: pointer;
-      padding: 10px 15px;
+      padding: 10px 12px;
       border-radius: 8px;
       transition: 0.3s;
+      text-align: center;
     }
 
     .dashboard button:hover,
@@ -103,7 +116,7 @@
 
     .projects-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
       gap: 20px;
     }
 
@@ -115,14 +128,8 @@
       text-align: center;
     }
 
-    .project-card img {
-      width: 100%;
-      height: 160px;
-      border-radius: 10px;
-      object-fit: cover;
-    }
-
-    .contact-form input, .contact-form textarea {
+    .contact-form input,
+    .contact-form textarea {
       width: 100%;
       padding: 10px;
       margin: 8px 0;
@@ -145,17 +152,6 @@
       padding: 20px;
       color: #666;
     }
-
-    .links a {
-      color: #0078ff;
-      text-decoration: none;
-      font-weight: bold;
-      margin: 0 10px;
-    }
-
-    .links a:hover {
-      text-decoration: underline;
-    }
   </style>
 </head>
 
@@ -163,7 +159,9 @@
 
 <div class="container">
 
+  <!-- HEADER WITH PROFILE PHOTO -->
   <div class="card header">
+    <!-- IMPORTANT: put profile.jpg in the SAME folder as index.html -->
     <img src="profile.jpg" alt="Sai Anirudh Photo">
     <h1 class="typing">I’m Sai Anirudh Godavarthi</h1>
     <p>Software Tester • Masters in Electrical and Computer Engineering</p>
@@ -174,17 +172,17 @@
     </div>
   </div>
 
-  <!-- Dashboard Tabs (3-line layout) -->
+  <!-- 3-LINE DASHBOARD TABS -->
   <div class="dashboard">
-    <button class="tab-btn active" onclick="openTab('about')">About</button>
-    <button class="tab-btn" onclick="openTab('skills')">Skills</button>
-    <button class="tab-btn" onclick="openTab('projects')">Projects</button>
-    <button class="tab-btn" onclick="openTab('presentations')">Presentations</button>
-    <button class="tab-btn" onclick="openTab('documents')">Documents</button>
-    <button class="tab-btn" onclick="openTab('contact')">Contact</button>
-    <button class="tab-btn" onclick="openTab('achievements')">Achievements</button>
-    <button class="tab-btn" onclick="openTab('education')">Education</button>
-    <button class="tab-btn" onclick="openTab('certifications')">Certifications</button>
+    <button class="tab-btn active" onclick="openTab('about', this)">About</button>
+    <button class="tab-btn" onclick="openTab('skills', this)">Skills</button>
+    <button class="tab-btn" onclick="openTab('projects', this)">Projects</button>
+    <button class="tab-btn" onclick="openTab('presentations', this)">Presentations</button>
+    <button class="tab-btn" onclick="openTab('documents', this)">Documents</button>
+    <button class="tab-btn" onclick="openTab('education', this)">Education</button>
+    <button class="tab-btn" onclick="openTab('achievements', this)">Achievements</button>
+    <button class="tab-btn" onclick="openTab('certifications', this)">Certifications</button>
+    <button class="tab-btn" onclick="openTab('contact', this)">Contact</button>
   </div>
 
   <!-- ABOUT -->
@@ -249,11 +247,65 @@
     </ul>
   </div>
 
+  <!-- EDUCATION -->
+  <div class="card tab-content" id="education">
+    <h3>Education</h3>
+    <ul>
+      <li>Masters in Electrical and Computer Engineering</li>
+      <li>Bachelor’s in Electronics / Related Field</li>
+    </ul>
+  </div>
+
   <!-- ACHIEVEMENTS -->
   <div class="card tab-content" id="achievements">
     <h3>Achievements</h3>
     <ul>
       <li>Best Embedded Systems Project Award – 2025</li>
-      <li>Published paper on IoT Security in IEEE Journal</li>
-      <li>Completed Advanced VLSI Design Certification</li>
+      <li>Published paper on IoT Security</li>
+      <li>Recognized for Automation Testing Excellence</li>
     </ul>
+  </div>
+
+  <!-- CERTIFICATIONS -->
+  <div class="card tab-content" id="certifications">
+    <h3>Certifications</h3>
+    <ul>
+      <li>Advanced VLSI Design Certification</li>
+      <li>Selenium Automation Testing Certification</li>
+      <li>Embedded Systems Specialization</li>
+    </ul>
+  </div>
+
+  <!-- CONTACT -->
+  <div class="card tab-content" id="contact">
+    <h3>Contact Me</h3>
+    <p>You can reach out to me via email or using this form:</p>
+    <form class="contact-form" action="mailto:sainairudh2000g@gmail.com" method="post" enctype="text/plain">
+      <input type="text" name="name" placeholder="Your Name" required>
+      <input type="email" name="email" placeholder="Your Email" required>
+      <textarea name="message" rows="5" placeholder="Your Message" required></textarea>
+      <button type="submit">Send Message</button>
+    </form>
+  </div>
+
+  <footer>
+    © 2026 Sai Anirudh — All Rights Reserved
+  </footer>
+
+</div>
+
+<script>
+  function openTab(tabId, btn) {
+    // hide all tab contents
+    document.querySelectorAll('.tab-content').forEach(tab => tab.classList.remove('active'));
+    // remove active from all buttons
+    document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+    // show selected tab
+    document.getElementById(tabId).classList.add('active');
+    // mark clicked button active
+    btn.classList.add('active');
+  }
+</script>
+
+</body>
+</html>
