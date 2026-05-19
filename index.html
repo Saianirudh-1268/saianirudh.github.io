@@ -192,44 +192,45 @@
 
     @media(max-width:768px){
 
-      body{
-        flex-direction: column;
-      }
+body{
+flex-direction:column;
+}
 
-      .sidebar{
-        width: 100%;
-        height: auto;
-        position: relative;
-      }
+.sidebar{
+width:250px;
+height:100%;
+position:fixed;
+left:-260px;
+}
 
-      .sidebar button{
-        text-align: center;
-      }
+.sidebar button{
+text-align:center;
+}
 
-      .main{
-        margin-left: 0;
-        width: 100%;
-        padding: 20px;
-      }
+.main{
+margin-left:0;
+width:100%;
+padding:20px;
+}
 
-      .hero{
-        padding: 30px 20px;
-      }
+.hero{
+padding:30px 20px;
+}
 
-      .hero img{
-        width: 180px;
-        height: 180px;
-      }
+.hero img{
+width:180px;
+height:180px;
+}
 
-      .hero h1{
-        font-size: 32px;
-      }
+.hero h1{
+font-size:32px;
+}
 
-      .card{
-        padding: 25px;
-      }
-    }
+.card{
+padding:25px;
+}
 
+}
   </style>
 </head>
 
@@ -625,38 +626,46 @@
 
   </div>
 
-  <!-- JAVASCRIPT -->
+ <script>
 
-  <!-- JAVASCRIPT -->
-
-<script>
-
-function toggleMenu(){
-
+function toggleMenu() {
     let sidebar = document.getElementById("sidebar");
-
     sidebar.classList.toggle("active");
 }
 
 function openTab(tabId){
 
-    const cards = document.querySelectorAll('.card');
+    const cards = document.querySelectorAll(".card");
 
     cards.forEach(card=>{
-        card.classList.remove('active');
+        card.classList.remove("active");
     });
 
-    document.getElementById(tabId)
-    .classList.add('active');
+    document.getElementById(tabId).classList.add("active");
 
-    /* close sidebar after clicking */
-
-    document.getElementById("sidebar")
-    .classList.remove("active");
+    // close menu after clicking
+    document.getElementById("sidebar").classList.remove("active");
 }
 
-</script>
 
+// close menu if clicking outside
+document.addEventListener("click", function(event){
+
+    let sidebar=document.getElementById("sidebar");
+    let menu=document.querySelector(".menu-btn");
+
+    if(
+        !sidebar.contains(event.target)
+        &&
+        !menu.contains(event.target)
+    ){
+        sidebar.classList.remove("active");
+    }
+
+});
+
+</script>
+  
 </body>
 </html>
 
