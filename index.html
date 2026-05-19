@@ -6,7 +6,6 @@
   <title>Sai Anirudh Godavarthi | Portfolio</title>
 
   <style>
-
     *{
       margin:0;
       padding:0;
@@ -21,53 +20,71 @@
       display: flex;
     }
 
-    /* SIDEBAR */
+/* HAMBURGER BUTTON */
 
-    .sidebar{
-      width: 250px;
-      background: white;
-      padding-top: 30px;
-      position: fixed;
-      height: 100%;
-      left: 0;
-      top: 0;
-      border-right: 1px solid #dbe4ee;
-      box-shadow: 2px 0 10px rgba(0,0,0,0.05);
-    }
+.menu-btn{
+    position: fixed;
+    top:20px;
+    left:20px;
+    font-size:28px;
+    background:white;
+    padding:10px 15px;
+    border-radius:8px;
+    cursor:pointer;
+    z-index:1001;
+    box-shadow:0 4px 12px rgba(0,0,0,0.15);
+}
 
-    .sidebar h2{
-      text-align: center;
-      margin-bottom: 30px;
-      color: #2563eb;
-      font-size: 26px;
-    }
+/* SIDEBAR */
 
-    .sidebar button{
-      width: 100%;
-      padding: 15px 25px;
-      background: transparent;
-      border: none;
-      color: #334155;
-      text-align: left;
-      font-size: 16px;
-      cursor: pointer;
-      transition: 0.3s;
-      font-weight: 500;
-    }
+.sidebar{
+    width:250px;
+    background:white;
+    position:fixed;
+    top:0;
+    left:-260px; /* hidden initially */
+    height:100%;
+    padding-top:70px;
+    border-right:1px solid #dbe4ee;
+    box-shadow:2px 0 10px rgba(0,0,0,0.05);
 
-    .sidebar button:hover{
-      background: #2563eb;
-      color: white;
-    }
+    transition:0.4s;
+    z-index:1000;
+}
 
-    /* MAIN CONTENT */
+.sidebar.active{
+    left:0;
+}
 
-    .main{
-      margin-left: 250px;
-      width: calc(100% - 250px);
-      padding: 40px;
-    }
+.sidebar h2{
+    text-align:center;
+    margin-bottom:25px;
+    color:#2563eb;
+}
 
+.sidebar button{
+    width:100%;
+    padding:15px;
+    border:none;
+    background:transparent;
+    font-size:16px;
+    cursor:pointer;
+    text-align:left;
+    transition:.3s;
+}
+
+.sidebar button:hover{
+    background:#2563eb;
+    color:white;
+}
+
+/* MAIN CONTENT */
+
+.main{
+    width:100%;
+    padding:40px;
+}
+    
     /* HERO SECTION */
 
     .hero{
@@ -610,20 +627,38 @@
 
   <!-- JAVASCRIPT -->
 
-  <script>
+  <!-- JAVASCRIPT -->
 
-    function openTab(tabId){
+<script>
 
-      const cards = document.querySelectorAll('.card');
+function toggleMenu(){
 
-      cards.forEach(card => {
+    let sidebar = document.getElementById("sidebar");
+
+    sidebar.classList.toggle("active");
+}
+
+function openTab(tabId){
+
+    const cards = document.querySelectorAll('.card');
+
+    cards.forEach(card=>{
         card.classList.remove('active');
-      });
+    });
 
-      document.getElementById(tabId).classList.add('active');
-    }
+    document.getElementById(tabId)
+    .classList.add('active');
 
-  </script>
+    /* close sidebar after clicking */
+
+    document.getElementById("sidebar")
+    .classList.remove("active");
+}
+
+</script>
+
+</body>
+</html>
 
 </body>
 </html>
