@@ -391,19 +391,22 @@ cursor:pointer;
 box-shadow:0 4px 10px rgba(0,0,0,.15);
 
 }
-/* SEPARATE ABOUT BUTTON */
+/* ABOUT TAB */
 
-.about-btn{
+.about-tab{
 
 height:38px;
 
-padding:0 18px;
+padding:0 20px;
 
-border:none;
+display:flex;
 
-border-radius:8px;
+align-items:center;
+justify-content:center;
 
 background:white;
+
+border-radius:8px;
 
 cursor:pointer;
 
@@ -413,13 +416,18 @@ font-weight:600;
 
 box-shadow:0 4px 10px rgba(0,0,0,.15);
 
-transition:.3s;
+transition:0.3s;
 
 }
-.about-btn:hover{
+
+
+.about-tab:hover{
 
 background:#2563eb;
+
 color:white;
+
+transform:translateY(-2px);
 
 }
 /* PREVENT OVERLAP */
@@ -711,9 +719,9 @@ padding:80px 40px 40px 40px;
 
   <div class="sidebar">
     <div class="top-buttons">
-    <button class="menu-btn" onclick="toggleMenu()">☰</button>
+    <button class="menu-btn" onclick="toggleMenu()"> ☰ </button>
       <!-- ABOUT BUTTON -->
-    <button class="about-btn" onclick="openTab('about')"> About </button>
+    <button class="about-tab" onclick="openTab('about')"> About </button>
     </div>
     <div class="sidebar" id="sidebar">
 
