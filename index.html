@@ -356,8 +356,8 @@ content="Sai Anirudh Godavarthi">
 
 position:fixed;
 
-top:20px;
-left:20px;
+top:10px;
+left:10px;
 
 width:50px;
 height:50px;
@@ -367,6 +367,7 @@ align-items:center;
 justify-content:center;
 
 font-size:30px;
+font-weight:bold;
 
 background:white;
 
@@ -374,13 +375,57 @@ border-radius:10px;
 
 cursor:pointer;
 
-z-index:9999;
+z-index:99999;
 
-box-shadow:0 4px 10px rgba(0,0,0,.2);
+box-shadow:0 4px 12px rgba(0,0,0,0.15);
+
+}
+.top-bar{
+
+position:fixed;
+
+top:10px;
+left:10px;
+
+display:flex;
+align-items:center;
+gap:10px;
+
+z-index:99999;
+
+}
+.about-btn{
+
+height:50px;
+
+padding:0 20px;
+
+border:none;
+
+border-radius:10px;
+
+background:white;
+
+cursor:pointer;
+
+font-size:16px;
+
+font-weight:600;
+
+box-shadow:0 4px 12px rgba(0,0,0,.15);
+
+transition:.3s;
 
 }
 
 
+.about-btn:hover{
+
+background:#2563eb;
+
+color:white;
+
+}
 /* SIDEBAR */
 
 .sidebar{
@@ -459,14 +504,13 @@ color:white;
 
 
 /* MAIN CONTENT */
-
 .main{
 
 width:100%;
 
-padding:90px 40px;
+padding:80px 40px 40px 40px;
 
-}   
+} 
     /* HERO */
 
     .hero {
@@ -663,14 +707,16 @@ padding:90px 40px;
   <!-- SIDEBAR -->
 
   <div class="sidebar">
-
+    <div class="top-bar">
     <button class="menu-btn" onclick="toggleMenu()">
       ☰
     </button>
-
+    <button class="about-btn" onclick="openTab('about')">
+      About
+    </button>
+    </div>
     <div class="sidebar" id="sidebar">
 
-      <button onclick="openTab('about')">About</button>
       <button onclick="openTab('resume')">Resume</button>
       <button onclick="openTab('projects')">Projects</button>
       <button onclick="openTab('presentations')">Presentations</button>
