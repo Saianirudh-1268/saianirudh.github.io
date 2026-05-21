@@ -125,72 +125,7 @@
       width: calc(100% - 250px);
       padding: 40px;
     }
-    /* TOP HEADER */
-
-.top-header
-{
-  width: 100%;
-
-  background: white;
-
-  padding: 20px 30px;
-
-  border-radius: 18px;
-
-  display: flex;
-
-  justify-content: space-between;
-
-  align-items: center;
-
-  margin-bottom: 30px;
-
-  box-shadow:
-  0 6px 20px rgba(0,0,0,0.06);
-}
-
-.logo-section h1
-{
-  color: #2563eb;
-
-  font-size: 28px;
-
-  margin-bottom: 6px;
-}
-
-.logo-section p
-{
-  color: #64748b;
-
-  font-size: 16px;
-}
-
-/* RESUME BUTTON */
-
-.resume-btn
-{
-  background: #2563eb;
-
-  color: white;
-
-  padding: 14px 24px;
-
-  border-radius: 10px;
-
-  text-decoration: none;
-
-  font-weight: bold;
-
-  transition: 0.3s;
-}
-
-.resume-btn:hover
-{
-  background: #1d4ed8;
-
-  transform: translateY(-3px);
-}
-
+   
     /* HERO */
 
     .hero {
@@ -395,7 +330,7 @@
     <div class="menu-items" id="menuItems">
 
       <button onclick="openTab('about')">About</button>
-      <button onclick="openTab('skills')">Skills</button>
+      <button onclick="openTab('resume')">Resume</button>
       <button onclick="openTab('projects')">Projects</button>
       <button onclick="openTab('presentations')">Presentations</button>
       <button onclick="openTab('documents')">Documents</button>
@@ -411,23 +346,7 @@
   <!-- MAIN CONTENT -->
 
   <div class="main">
-    <!-- TOP HEADER -->
-
-<div class="top-header">
-
-  <div class="logo-section">
-    <h1> Sai Anirudh Godavarthi </h1>
-  </div>
-
-  <div class="cert-card">
-          <img src="Resume.pdf">
-          <p>My Resume</p>
-          <a href="Resume.pdf" target="_blank">
-            View Resume
-          </a>
-        </div>
-</div>
-
+   
     <!-- ABOUT -->
 
     <div class="card active" id="about">
@@ -501,22 +420,18 @@
 
     </div>
 
-    <!-- SKILLS -->
+    <!-- RESUME -->
 
-    <div class="card" id="skills">
+    <div class="card" id="resume">
 
-      <h2>Skills</h2>
-
-      <ul>
-        <li>Embedded C, STM32, ARM Cortex-M</li>
-        <li>IoT Firmware Development</li>
-        <li>Selenium Automation Testing</li>
-        <li>Java, Python, JavaScript</li>
-        <li>HTML, CSS, Responsive Web Design</li>
-        <li>ASIC Physical Design & VLSI</li>
-        <li>RF & Mixed Signal Systems</li>
-        <li>THz Communication for 6G</li>
-      </ul>
+      <h2>My Resume</h2>
+       <div class="resume-card">
+          <img src="Resume.pdf">
+          <p>My Resume</p>
+          <a href="Resume.pdf" target="_blank">
+            View Resume
+          </a>
+        </div>
 
     </div>
 
