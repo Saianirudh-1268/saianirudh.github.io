@@ -546,8 +546,6 @@ box-shadow:
 0 8px 20px rgba(37,99,235,.3);
 
 }
-
-
 /* CLICK EFFECT */
 
 .sidebar button:active{
@@ -704,7 +702,71 @@ padding:80px 40px 40px 40px;
       font-size: 14px;
       text-decoration: none;
     }
+    .contact-form
+{
+  margin-top:30px;
 
+  display:flex;
+
+  flex-direction:column;
+
+  gap:20px;
+}
+
+.contact-form input,
+.contact-form textarea
+{
+  width:100%;
+
+  padding:15px;
+
+  border:none;
+
+  border-radius:12px;
+
+  background:#f1f5f9;
+
+  font-size:16px;
+
+  outline:none;
+
+  color:#1e293b;
+}
+
+.contact-form textarea
+{
+  height:150px;
+
+  resize:none;
+}
+
+.contact-form button
+{
+  padding:15px;
+
+  border:none;
+
+  border-radius:12px;
+
+  background:#2563eb;
+
+  color:white;
+
+  font-size:18px;
+
+  font-weight:bold;
+
+  cursor:pointer;
+
+  transition:0.3s;
+}
+
+.contact-form button:hover
+{
+  transform:translateY(-3px);
+
+  background:#1d4ed8;
+}
     /* FOOTER */
 
     footer {
@@ -1203,27 +1265,32 @@ padding:80px 40px 40px 40px;
     gap:20px;
   ">
 
-    <!-- EMAIL BUTTON -->
-    <a href="mailto:saianirudh2000g@gmail.com"
-   target="_blank"
-   style="
-   display:inline-block;
-   padding:14px 28px;
-   background:#2563eb;
-   color:white;
-   text-decoration:none;
-   border-radius:12px;
-   font-weight:bold;
-   box-shadow:0 4px 12px rgba(37,99,235,0.25);
-   transition:transform 0.3s ease;
-   cursor:pointer;
-   "
-   onmouseover="this.style.transform='translateY(-3px)'"
-   onmouseout="this.style.transform='translateY(0px)'">
+   <!-- CONTACT -->
 
-   ✉️ Send Email
+<div class="card" id="contact">
 
-</a>
+  <h2>Contact Me</h2>
+
+  <!-- CONTACT FORM -->
+  <div class="contact-form">
+
+    <!-- SUBJECT -->
+    <input type="text"
+           id="subject"
+           placeholder="Enter Subject">
+
+    <!-- MESSAGE -->
+    <textarea id="message"
+              placeholder="Write your message here..."></textarea>
+
+    <!-- SEND BUTTON -->
+    <button onclick="sendEmail()">
+
+      📧 Send Email
+
+    </button>
+  </div>
+</div>
     <!-- CALL BUTTON -->
     <a href="tel:+18167153854"
        style="
@@ -1250,7 +1317,7 @@ padding:80px 40px 40px 40px;
       <a href="https://github.com/saianirudh-g">GITHUB </a>
       <a href="https://www.linkedin.com/in/sai-anirudh-godavarthi-710b16273/">LINKEDIN </a>
       <a href="https://www.linkedin.com/feed/">FEED</a>
-      <p>© 2026 Sai Anirudh Godavarthi | Portfolio</p>
+      <p>© 2026 Sai Anirudh Godavarthi | Powered BY GitHub</p>
     </footer>
 
   </div>
@@ -1337,6 +1404,17 @@ function erase()
 }
 
 type();
+    function sendEmail()
+{
+  const subject =
+  document.getElementById("subject").value;
+
+  const message =
+  document.getElementById("message").value;
+
+  window.location.href =
+  `mailto:saianirudh2000g@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(message)}`;
+}
   </script>
   
 </body>
