@@ -661,7 +661,145 @@ padding:80px 40px 40px 40px;
     .card ul {
       padding-left: 20px;
     }
+    /* =======================================================
+   COMMON CARD GRID
+======================================================= */
 
+.card-grid
+{
+  display:flex;
+
+  flex-wrap:wrap;
+
+  gap:25px;
+
+  margin-top:25px;
+}
+
+/* =======================================================
+   COMMON ITEM CARD
+======================================================= */
+
+.info-card
+{
+  width:250px;
+
+  background:white;
+
+  border-radius:18px;
+
+  padding:18px;
+
+  text-align:center;
+
+  box-shadow:
+  0 6px 18px rgba(0,0,0,0.08);
+
+  transition:0.3s;
+}
+
+.info-card:hover
+{
+  transform:translateY(-8px);
+
+  box-shadow:
+  0 12px 28px rgba(37,99,235,0.18);
+}
+
+/* =======================================================
+   IMAGE STYLE
+======================================================= */
+
+.info-card img
+{
+  width:100%;
+
+  height:160px;
+
+  object-fit:cover;
+
+  border-radius:12px;
+}
+
+/* =======================================================
+   CARD TITLE
+======================================================= */
+
+.info-card h3
+{
+  margin-top:15px;
+
+  color:#2563eb;
+
+  font-size:18px;
+}
+
+/* =======================================================
+   CARD TEXT
+======================================================= */
+
+.info-card p
+{
+  margin-top:10px;
+
+  color:#475569;
+
+  font-size:15px;
+
+  line-height:1.6;
+}
+
+/* =======================================================
+   BUTTON / LINK
+======================================================= */
+
+.info-card a
+{
+  display:inline-block;
+
+  margin-top:15px;
+
+  padding:10px 18px;
+
+  background:#2563eb;
+
+  color:white;
+
+  text-decoration:none;
+
+  border-radius:10px;
+
+  font-size:14px;
+
+  font-weight:bold;
+
+  transition:0.3s;
+}
+
+.info-card a:hover
+{
+  background:#1d4ed8;
+
+  transform:scale(1.05);
+}
+
+/* =======================================================
+   MOBILE RESPONSIVE
+======================================================= */
+
+@media(max-width:768px)
+{
+  .card-grid
+  {
+    justify-content:center;
+  }
+
+  .info-card
+  {
+    width:100%;
+    max-width:320px;
+  }
+}
     /* CERTIFICATIONS */
 
     .certifications-container {
@@ -965,82 +1103,85 @@ padding:80px 40px 40px 40px;
     <!-- PROJECTS -->
 
     <div class="card" id="projects">
-
       <h2>Projects</h2>
-      <div class="cert-card">
+      <div class="card-grid">
+        
+      <div class="info-card">
           <p>STM32 Microcontroller using Embedded tools, 2026</p>
           <a href="" target="_blank">
             View Project
           </a>
       </div>
-      <div class="cert-card">
+      <div class="info-card">
           <p>Bluetooth Low Energy Receiver Front End Design (Schematic & PCB Design), 2026</p>
           <a href="" target="_blank">
             View Project
           </a>
       </div>    
-      <div class="cert-card">
+      <div class="info-card">
           <p>Antenna Radia Frequency Design using Vector Network Analyser (VNAs), 2025</p>
           <a href="" target="_blank">
             View Project
           </a>
       </div>    
-      <div class="cert-card">
+      <div class="info-card">
           <p>SRAM (Schematic, Layout Design with butterfly curve simulation, 2025</p>
           <a href="" target="_blank">
             View Project
           </a>
       </div>  
-      <div class="cert-card">
+      <div class="info-card">
           <p>RTL to GDSII Flow (Register Transfer level, Logic Synthesis, Floor & Power Planning, CTS, Placement, Routing), 2025</p>
           <a href="" target="_blank">
             View Project
           </a>
       </div>   
-      <div class="cert-card">
+      <div class="info-card">
           <p>ESP32 Microcontroller using bluetooth with Embedded C tools, B.Tech VIT 2023</p>
           <a href="https://drive.google.com/file/d/1hKGCZTkT18Ju2bfTRRUBFKLaIx_CeTkZ/view?usp=sharing" target="_blank">
             View Project
           </a>
       </div>
-       
+      </div>
     </div>
 
     <!-- PRESENTATIONS -->
 
     <div class="card" id="presentations">
-
       <h2>Presentations</h2>
-
-      <div class="cert-card">
+<div class="card-grid">
+  
+      <div class="info-card">
           <p>Multi-KM Multi-Gigabit persecond Sub THz communications for Wireless Backhaul Applications PPT</p>
           <a href="https://docs.google.com/presentation/d/1nhTqQzFcs0jdQZsAPV3i9337eh_l3V8r/edit?usp=sharing&ouid=113903883699754933294&rtpof=true&sd=true" target="_blank">
             View PPT
           </a>
         </div>
+</div>
     </div>
 
     <!-- DOCUMENTS -->
 
     <div class="card" id="documents">
-
       <h2>Documents</h2>
-
-      <div class="cert-card">
+      
+<div class="card-grid">
+      <div class="info-card">
           <p>Multi-KM Multi-Gigabit persecond Sub THz communications for Wireless Backhaul Applications Research Paper</p>
           <a href="https://drive.google.com/file/d/12hdffeJ9UaW2whqF3nt44lnZZKUTfbct/view?usp=sharing" target="_blank">
             View Document
           </a>
         </div>
+</div>
     </div>
 
     <!-- ACHIEVEMENTS -->
 
     <div class="card" id="achievements">
-      
       <h2>Achievements</h2>
-      
-      <div class="cert-card">
+      <div class="card-grid">
+        
+      <div class="info-card">
           <img src="Images/RSA.png">
           <p>Rising Star Award by CEO of QualiZeal in 2024</p>
           <a href="Images/RSA.png" target="_blank">
@@ -1048,7 +1189,7 @@ padding:80px 40px 40px 40px;
           </a>
         </div>
       
-      <div class="cert-card">
+      <div class="info-card">
           <img src="Images/3.png">
           <p>BrowserStack Meet-up for the third time to grab the skills on performance testing, Gen-AI and prompt engineering in 2024</p>
           <a href="Images/3.png" target="_blank">
@@ -1056,7 +1197,7 @@ padding:80px 40px 40px 40px;
           </a>
       </div>
       
-      <div class="cert-card">
+      <div class="info-card">
           <img src="Images/2.png">
           <p>One Year completion at QualiZeal in 2024</p>
           <a href="Images/2.png" target="_blank">
@@ -1064,7 +1205,7 @@ padding:80px 40px 40px 40px;
           </a>
         </div>
       
-        <div class="cert-card">
+        <div class="info-card">
           <img src="Images/6.jpeg">
           <p>NCL Team Outing 😍 with QualiZeal BU Leaders in 2024</p>
           <a href="Images/6.jpeg" target="_blank">
@@ -1072,7 +1213,7 @@ padding:80px 40px 40px 40px;
           </a>
         </div>
       
-        <div class="cert-card">
+        <div class="info-card">
           <img src="Images/5.png">
           <p>Firmware development team lunch😍 @Qualizeal</p>
           <a href="Images/5.png" target="_blank">
@@ -1080,14 +1221,14 @@ padding:80px 40px 40px 40px;
           </a>
         </div>
       
-      <div class="cert-card">
+      <div class="info-card">
           <img src="Images/4.jpeg">
           <p>My B.Tech Graduation day 🎓💐@Vishnu Institute of Technology (Autonomous) in 2024</p>
           <a href="Images/4.jpeg" target="_blank">
             View
           </a>
       </div>
-      
+      </div>
     </div>
 
     <!-- CERTIFICATIONS -->
