@@ -1006,7 +1006,6 @@ menuBtn.onclick = () => {
 /* =========================================================
    PROJECT SLIDER (MATCHES BODY + CSS)
 ========================================================= */
-
 document.addEventListener("DOMContentLoaded", () => {
   const container = document.querySelector(".projects-container");
   const cards = document.querySelectorAll(".project-card");
@@ -1017,7 +1016,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const cardsPerView = 3;
 
   function updateSlider() {
-    const cardWidth = cards[0].offsetWidth + 20; // margin included
+    const cardWidth = cards[0].getBoundingClientRect().width + 20; 
     container.style.transform = `translateX(-${index * cardWidth}px)`;
   }
 
@@ -1034,6 +1033,8 @@ document.addEventListener("DOMContentLoaded", () => {
       updateSlider();
     }
   });
+
+  window.addEventListener("resize", updateSlider);
 });
 
 /* =========================================================
