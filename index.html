@@ -404,6 +404,46 @@ section{
   gap:20px;
   flex-wrap:wrap;
 }
+/* ============================
+   IMAGE POPUP MODEL
+============================ */
+.img-modal {
+  display: none;
+  position: fixed;
+  z-index: 9999;
+  padding-top: 80px;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background: rgba(0,0,0,0.85);
+  backdrop-filter: blur(6px);
+}
+
+.img-modal img {
+  margin: auto;
+  display: block;
+  max-width: 80%;
+  max-height: 80vh;
+  border-radius: 12px;
+  box-shadow: 0 0 25px rgba(255,255,255,0.3);
+}
+
+.close-modal {
+  position: absolute;
+  top: 25px;
+  right: 40px;
+  color: white;
+  font-size: 45px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.close-modal:hover {
+  color: #06b6d4;
+}
 /* =========================================================
    FOOTER
 ========================================================= */
@@ -937,6 +977,12 @@ Open for research collaboration, embedded systems development, RF engineering pr
 </div>
 </section>
 
+<!-- IMAGE POPUP MODAL -->
+<div id="imgModal" class="img-modal">
+  <span class="close-modal">&times;</span>
+  <img class="modal-content" id="modalImg">
+</div>
+
 <!-- FOOTER -->
 <footer class="footer">
   <div class="footer-follow">
@@ -985,6 +1031,36 @@ const navLinks = document.getElementById("navLinks");
 menuBtn.onclick = () => {
   navLinks.classList.toggle("active");
 };
+/* =========================================================
+   IMAGE POPUP FOR ACHIEVEMENTS / CERTIFICATIONS / MOMENTS
+========================================================= */
+document.addEventListener("DOMContentLoaded", () => {
+  const modal = document.getElementById("imgModal");
+  const modalImg = document.getElementById("modalImg");
+  const closeBtn = document.querySelector(".close-modal");
+
+  // Select all images inside project-card (Achievements, Certifications, Moments)
+  const clickableImages = document.querySelectorAll(
+    "#achievements img, #certifications img, #moments img"
+  );
+
+  clickableImages.forEach(img => {
+    img.style.cursor = "pointer";
+
+    img.addEventListener("click", () => {
+      modal.style.display = "block";
+      modalImg.src = img.src;
+    });
+  });
+
+  closeBtn.onclick = () => {
+    modal.style.display = "none";
+  };
+
+  modal.onclick = (e) => {
+    if (e.target === modal) modal.style.display = "none";
+  };
+});
 /* =========================================================
    UNIVERSAL SLIDER FOR ALL SECTIONS
 ========================================================= */
