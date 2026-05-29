@@ -920,7 +920,7 @@ padding:80px 40px 40px 40px;
 
     <div class="top-buttons">
     <button class="menu-btn" onclick="toggleMenu()"> ☰ </button>
-    <button class="about-tab" onclick="openTab('goHome()')"> Home </button>
+    <button class="about-tab" onclick="openTab('home')"> Home </button>
     <button class="about-tab" onclick="openTab('resume')">Resume</button>
     <button class="about-tab" onclick="openTab('moments')">Moments</button>
     </div>
@@ -1491,21 +1491,8 @@ function openTab(tabId){
   cards.forEach(card => {
     card.classList.remove("active");
   });
-
-  document.getElementById(tabId).classList.add("active");
-
-  document.getElementById("sidebar").classList.remove("active");
-  document.getElementById("main").classList.remove("slide");
 }
-function goHome(){
-
-  openTab("about");
-
-  window.scrollTo({
-    top: 0,
-    behavior: "smooth"
-  });
-}
+    
   /* TYPING ANIMATION */
 
 const texts =
